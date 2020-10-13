@@ -4,7 +4,7 @@
 {% set describedBy = params.describedBy if params.describedBy else params.id + "-description" %}
 <div id="{{ params.id }}" class="govuk-modal-dialogue{% if params.classes %} {{ params.classes }}{% endif %}{% if params.open %} govuk-modal-dialogue--open{% endif %}" data-module="govuk-modal-dialogue">
   <div class="govuk-modal-dialogue__wrapper">
-    <dialog class="govuk-modal-dialogue__box" aria-labelledby="{{ labelledBy }}" aria-describedby="{{ describedBy }}" aria-modal="true" role="{{ params.role | default('dialog') }}" tabindex="0"
+    <div class="govuk-modal-dialogue__box" aria-labelledby="{{ labelledBy }}" aria-describedby="{{ describedBy }}" aria-modal="true" role="{{ params.role | default('dialog') }}" tabindex="0"
     {%- for attribute, value in params.attributes %} {{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% if params.open %} open{% endif %}>
       <div class="govuk-modal-dialogue__header">
         {#- We use an inline SVG for the crown so that we can cascade the
@@ -18,7 +18,7 @@
         treat it as an interactive element - without this it will be
         'focusable' when using the keyboard to navigate. #}
         <svg
-          role="presentation"
+          role="img"
           focusable="false"
           class="govuk-modal-dialogue__crown"
           xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@
           downloading the fallback image when they don't need to.
           In other browsers <image> is synonymous for the <img> tag and will be
           interpreted as such, displaying the fallback image. #}
-          <image src="{{ params.assetsPath | default('/assets/images') }}/govuk-logotype-crown.png" xlink:href="" class="govuk-header__logotype-crown-fallback-image" width="36" height="32"></image>
+          <image href="{{ params.assetsPath | default('/assets/images') }}/govuk-logotype-crown.png" xlink:href="" class="govuk-header__logotype-crown-fallback-image" width="36" height="32"></image>
         </svg>
 
         {{ govukButton({
@@ -63,7 +63,7 @@
           {{ caller() }}
         {% endif %}
       </div>
-    </dialog>
+    </div>
   </div>
   <div class="govuk-modal-dialogue__backdrop"></div>
 </div>
