@@ -123,7 +123,7 @@
     float: right;
     color: govuk-colour("white");
     background-color: govuk-colour("black");
-    box-shadow: none !important;
+    box-shadow: none;
     font-size: $font-size;
     @if $govuk-typography-use-rem {
       font-size: govuk-px-to-rem($font-size);
