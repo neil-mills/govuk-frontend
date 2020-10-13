@@ -1,7 +1,7 @@
 {
   "name": "govuk-frontend",
   "description": "GOV.UK Frontend contains the code you need to start building a user interface for government platforms and services.",
-  "version": "3.4.0",
+  "version": "3.9.1",
   "main": "govuk/all.js",
   "sass": "govuk/all.scss",
   "engines": {
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/alphagov/govuk-frontend/issues"
   },
-  "homepage": "https://github.com/alphagov/govuk-frontend#readme",
+  "homepage": "https://frontend.design-system.service.gov.uk/",
   "keywords": [
     "govuk",
     "frontend",

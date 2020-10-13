@@ -25,7 +25,7 @@ params:
   description: If `maxlength` is set, this is not required. The maximum number of words. If `maxwords` is provided, the `maxlength` argument will be ignored.
 - name: threshold
   type: string
-  required: true
+  required: false
   description: The percentage value of the limit at which point the count message is displayed. If this attribute is set, the count message will be hidden by default.
 - name: label
   type: object
@@ -40,7 +40,7 @@ params:
 - name: errorMessage
   type: object
   required: false
-  description: Options for the errorMessage component (e.g. text).
+  description: Options for the error message component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.
   isComponent: true
 - name: formGroup
   type: object
@@ -59,7 +59,19 @@ params:
   type: object
   required: false
   description: HTML attributes (for example data attributes) to add to the textarea.
-
+- name: spellcheck
+  type: boolean
+  required: false
+  description: Optional field to enable or disable the spellcheck attribute on the character count.
+- name: countMessage
+  type: object
+  required: false
+  description: Options for the count message
+  params:
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the count message
 
 examples:
   - name: default
@@ -141,3 +153,38 @@ examples:
       threshold: 75
       label:
         text: Full address
+
+# Hidden examples are not shown in the review app, but are used for tests and HTML fixtures
+  - name: classes
+    hidden: true
+    data:
+      classes: app-character-count--custom-modifier
+  - name: attributes
+    hidden: true
+    data:
+      attributes:
+        data-attribute: my data value
+  - name: formGroup with classes
+    hidden: true
+    data:
+      formGroup:
+        classes: app-character-count--custom-modifier
+  - name: custom classes on countMessage
+    hidden: true
+    data:
+      countMessage:
+        classes: app-custom-count-message
+  - name: spellcheck enabled
+    hidden: true
+    data:
+      spellcheck: true
+  - name: spellcheck disabled
+    hidden: true
+    data:
+      spellcheck: false
+  - name: custom classes with error message
+    hidden: true
+    data:
+      classes: app-character-count--custom-modifier
+      errorMessage:
+        text: Error message

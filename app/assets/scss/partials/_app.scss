@@ -8,12 +8,34 @@
 
 // Injected into the preview page, that is then put in an iframe
 .app-iframe-in-component-preview {
+<<<<<<< HEAD
   margin: 5px;
 }
 
 .app-iframe-in-component-preview--full-width {
   margin-right: 0;
   margin-left: 0;
+=======
+  margin: 15px 0;
+
+  // Highlight the whitespace around a component, so you can see without having to
+  // inspect it.
+  .app-whitespace-highlight {
+    $app-preview-border-colour: #e4f2ff;
+
+    @include govuk-clearfix;
+
+    content: " ";
+    display: table;
+    width: 100%;
+    clear: both;
+    box-shadow: 0 0 0 5px $app-preview-border-colour;
+
+    @include govuk-if-ie8 {
+      outline: 5px solid $app-preview-border-colour;
+    }
+  }
+>>>>>>> origin/master
 }
 
 // Removes the breakpoint sass-mq debug display
@@ -47,6 +69,7 @@
   width: 100%;
   border: 0;
 }
+<<<<<<< HEAD
 
 // Highlight the whitespace around a component, so you can see without having to
 // inspect it.
@@ -77,3 +100,5 @@
     height: 500px;
   }
 }
+=======
+>>>>>>> origin/master
